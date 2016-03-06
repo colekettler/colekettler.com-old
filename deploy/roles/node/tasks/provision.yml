@@ -23,7 +23,6 @@
 - name: install node
   apt:
     name: nodejs
-    update_cache: yes
     state: present
 
 - name: install pm2

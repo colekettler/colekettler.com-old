@@ -3,8 +3,6 @@
 - name: install nginx
   apt:
     name: nginx
-    update_cache: yes
-    cache_valid_time: 3600
     state: present
 
 - name: allow http and https traffic
