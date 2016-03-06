@@ -15,3 +15,4 @@
     - { role: exim, tags: ['exim'] }
     - { role: nginx, tags: ['nginx'] }
     - { role: node, tags: ['node'] }
+    - { role: ghost, tags: ['ghost'] }

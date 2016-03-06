@@ -1,0 +1,23 @@
+---
+
+- name: create ghost directory
+  file:
+    path: "{{ ghost_dir }}"
+    owner: deploy
+    group: node
+    mode: "06775"
+    state: directory
+
+- name: install ghost
+  unarchive:
+    src: "https://ghost.org/zip/ghost-latest.zip"
+    dest: "{{ ghost_dir }}"
+    owner: deploy
+    mode: g+w
+    copy: no
+
+- name: install ghost dependencies
+  npm:
+    path: "{{ ghost_dir }}"
+    production: yes
+    state: present

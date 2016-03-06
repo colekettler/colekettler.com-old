@@ -1,0 +1,14 @@
+---
+
+- name: decrypt secrets
+  include_vars: vault.yml
+  no_log: yes
+
+- name: configure ghost
+  template:
+    src: config.js.j2
+    dest: "{{ ghost_dir }}/config.js"
+    owner: deploy
+    group: node
+    mode: "0660"
+  become: yes

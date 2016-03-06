@@ -1,0 +1,5 @@
+---
+
+ghost_dir: /var/www/ghost
+ghost_url: "https://{{ domain }}"
+ghost_email_service: "Sendgrid"

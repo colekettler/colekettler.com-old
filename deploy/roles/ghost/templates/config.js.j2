@@ -1,0 +1,31 @@
+var path = require('path');
+
+var config = {
+  production: {
+    url: '{{ ghost_url }}',
+    mail: {
+      transport: 'SMTP',
+      options: {
+        service: '{{ ghost_email_service }}',
+        auth: {
+          user: '{{ ghost_email_username }}',
+          pass: '{{ ghost_email_password }}'
+        }
+      }
+    },
+    database: {
+      client: 'sqlite3',
+      connection: {
+        filename: path.join(__dirname, '/content/data/ghost.db')
+      },
+      debug: false
+    },
+
+    server: {
+      host: '127.0.0.1',
+      port: '2368'
+    }
+  }
+};
+
+module.exports = config;
