@@ -1,0 +1,5 @@
+---
+
+hostname: "{{ ansible_hostname }}"
+domain: colekettler.com
+fqdn: "{{ hostname }}.{{ domain }}"

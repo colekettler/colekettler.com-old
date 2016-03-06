@@ -1,0 +1,8 @@
+---
+
+droplet_name: wintermute
+droplet_size: 1gb
+droplet_region: nyc3
+droplet_image: debian-8-x64
+root_pub_key_file: "{{ lookup('env', 'SITE_ROOT_PUB_KEY') }}"
+root_pub_key: "{{ lookup('file', root_pub_key_file) }}"
