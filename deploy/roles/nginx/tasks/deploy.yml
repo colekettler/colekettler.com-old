@@ -18,3 +18,18 @@
     mode: 0600
   become: yes
   notify: restart nginx
+
+- name: configure nginx site
+  template:
+    src: ghost.j2
+    dest: /etc/nginx/sites-available/{{ domain }}
+  become: yes
+  notify: reload nginx
+
+- name: enable nginx site
+  file:
+    src: /etc/nginx/sites-available/{{ domain }}
+    dest: /etc/nginx/sites-enabled/{{ domain }}
+    state: link
+  become: yes
+  notify: reload nginx
