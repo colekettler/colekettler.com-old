@@ -1,0 +1,9 @@
+---
+
+- name: reconfigure exim4
+  command: update-exim4.conf
+
+- name: restart exim4
+  service:
+    name: exim4
+    state: restarted

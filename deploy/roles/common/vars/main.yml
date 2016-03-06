@@ -1,4 +1,5 @@
 ---
 
 admin_user: cole
+admin_email: admin+{{ hostname }}@colekettler.com
 admin_pub_key_file: "{{ lookup('env', 'SITE_ADMIN_PUB_KEY') }}"

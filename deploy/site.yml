@@ -12,5 +12,6 @@
   remote_user: deploy
   roles:
     - { role: common, tags: ['common'] }
-    - { role: node, tags: ['node'] }
+    - { role: exim, tags: ['exim'] }
     - { role: nginx, tags: ['nginx'] }
+    - { role: node, tags: ['node'] }

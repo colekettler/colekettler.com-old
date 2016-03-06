@@ -19,6 +19,7 @@
   with_items:
     - build-essential
     - fail2ban
+    - logwatch
     - ntp
     - ufw
 
@@ -35,6 +36,11 @@
   ufw:
     policy: deny
     state: enabled
+
+- name: configure logwatch
+  template:
+    src: templates/logwatch.j2
+    dest: /etc/logwatch/conf/logwatch.conf
 
 - name: disable ssh password authentication
   lineinfile:
@@ -64,6 +70,7 @@
     enabled: yes
     state: started
   with_items:
+    - exim4
     - fail2ban
     - networking
     - ntp
