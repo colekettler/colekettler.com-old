@@ -1,0 +1,20 @@
+---
+
+- name: decrypt secrets
+  include_vars: vault.yml
+  no_log: yes
+
+- name: install ssl certificate
+  copy:
+    content: "{{ ssl_cert }}"
+    dest: /etc/ssl/certs/{{ domain }}.pem
+  become: yes
+  notify: restart nginx
+
+- name: install ssl key
+  copy:
+    content: "{{ ssl_key }}"
+    dest: /etc/ssl/private/{{ domain }}.key
+    mode: 0600
+  become: yes
+  notify: restart nginx

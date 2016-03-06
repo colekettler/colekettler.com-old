@@ -7,3 +7,6 @@
 - include: upgrade.yml
   become: yes
   tags: upgrade
+
+- include: deploy.yml
+  tags: deploy
