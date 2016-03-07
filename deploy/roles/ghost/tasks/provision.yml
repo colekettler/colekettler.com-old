@@ -4,7 +4,7 @@
   file:
     path: "{{ ghost_dir }}"
     owner: deploy
-    group: node
+    group: ghost
     mode: "06775"
     state: directory
 
@@ -20,4 +20,10 @@
   npm:
     path: "{{ ghost_dir }}"
     production: yes
+    state: present
+
+- name: create ghost user
+  user:
+    name: ghost
+    shell: /usr/sbin/nologin
     state: present

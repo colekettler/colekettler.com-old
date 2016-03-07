@@ -30,9 +30,3 @@
     name: pm2
     global: yes
     state: present
-
-- name: create node user
-  user:
-    name: node
-    shell: /usr/sbin/nologin
-    state: present
