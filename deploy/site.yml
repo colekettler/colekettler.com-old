@@ -16,3 +16,4 @@
     - { role: nginx, tags: ['nginx'] }
     - { role: node, tags: ['node'] }
     - { role: ghost, tags: ['ghost'] }
+    - { role: pm2, tags: ['pm2'] }

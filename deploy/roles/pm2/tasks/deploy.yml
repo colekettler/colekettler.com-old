@@ -1,0 +1,24 @@
+---
+
+- name: create pm2 config
+  template:
+    src: ghost.json.j2
+    dest: "{{ pm2_procs_file }}"
+    owner: "{{ pm2_user }}"
+    group: "{{ pm2_user }}"
+  become: yes
+  notify: restart pm2
+
+- name: create pm2 init script
+  command: "{{ pm2_bin }} startup -u {{ pm2_user }} --hp {{ pm2_user_home }}"
+  become: yes
+
+- name: start pm2
+  shell: "{{ pm2_bin }} start {{ pm2_procs_file }}"
+  args:
+    chdir: "{{ pm2_user_home }}"
+    executable: /bin/bash
+  environment:
+    PM2_HOME: "{{ pm2_user_home }}/.pm2"
+  become: yes
+  become_user: "{{ pm2_user }}"

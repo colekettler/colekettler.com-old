@@ -1,0 +1,23 @@
+---
+
+- name: install pm2
+  npm:
+    name: pm2
+    global: yes
+    state: present
+
+- name: create pm2 user
+  user:
+    name: "{{ pm2_user }}"
+    shell: /usr/sbin/nologin
+    state: present
+
+# This directory is possibly sensitive - keep it locked down to 0700
+- name: create pm2 directory
+  file:
+    path: "{{ pm2_user_home }}/.pm2"
+    owner: "{{ pm2_user }}"
+    group: "{{ pm2_user }}"
+    mode: "0700"
+    state: directory
+  become: yes

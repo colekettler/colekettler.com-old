@@ -1,0 +1,6 @@
+---
+
+pm2_user: ghost
+pm2_user_home: /home/{{ pm2_user }}
+pm2_bin: /usr/bin/pm2
+pm2_procs_file: "{{ pm2_user_home }}/ghost.json"

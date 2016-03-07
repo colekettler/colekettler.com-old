@@ -24,9 +24,3 @@
   apt:
     name: nodejs
     state: present
-
-- name: install pm2
-  npm:
-    name: pm2
-    global: yes
-    state: present
