@@ -1,0 +1,13 @@
+---
+
+- name: reread supervisorctl
+  supervisorctl:
+    name: ghost
+    state: present
+  become: yes
+
+- name: restart supervisorctl
+  supervisorctl:
+    name: ghost
+    state: restarted
+  become: yes

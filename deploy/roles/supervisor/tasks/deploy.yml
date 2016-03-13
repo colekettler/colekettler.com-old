@@ -1,0 +1,10 @@
+---
+
+- name: create ghost supervisor job
+  template:
+    src: templates/ghost.conf.j2
+    dest: /etc/supervisor/conf.d/ghost.conf
+  become: yes
+  notify:
+    - reread supervisorctl
+    - restart supervisorctl

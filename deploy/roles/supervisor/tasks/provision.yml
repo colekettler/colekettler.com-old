@@ -1,0 +1,12 @@
+---
+
+- name: install supervisor
+  apt:
+    name: supervisor
+    state: present
+
+- name: make sure supervisor is running
+  service:
+    name: supervisor
+    enabled: yes
+    state: started

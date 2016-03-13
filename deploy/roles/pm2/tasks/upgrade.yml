@@ -1,8 +1,0 @@
----
-
-- name: upgrade pm2
-  npm:
-    name: pm2
-    global: yes
-    state: latest
-  notify: update pm2
