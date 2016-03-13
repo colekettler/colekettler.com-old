@@ -12,3 +12,10 @@
     group: ghost
     mode: "0660"
   become: yes
+
+- name: install theme
+  git:
+    repo: "{{ ghost_theme_repo }}"
+    dest: "{{ ghost_theme_dir }}"
+    accept_hostkey: yes
+    update: yes

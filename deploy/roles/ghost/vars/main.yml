@@ -2,4 +2,6 @@
 
 ghost_dir: /var/www/ghost
 ghost_url: "https://{{ domain }}"
-ghost_email_service: "Sendgrid"
+ghost_email_service: Sendgrid
+ghost_theme_dir: "{{ ghost_dir }}/content/themes/cyanotype"
+ghost_theme_repo: "ssh://git@github.com/ColeKettler/cyanotype.git"
