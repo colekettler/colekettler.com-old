@@ -1,5 +1,11 @@
 ---
 
+- name: create ghost user
+  user:
+    name: ghost
+    shell: /usr/sbin/nologin
+    state: present
+
 - name: create ghost directory
   file:
     path: "{{ ghost_dir }}"
@@ -20,10 +26,4 @@
   npm:
     path: "{{ ghost_dir }}"
     production: yes
-    state: present
-
-- name: create ghost user
-  user:
-    name: ghost
-    shell: /usr/sbin/nologin
     state: present
