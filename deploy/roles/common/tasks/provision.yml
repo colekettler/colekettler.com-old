@@ -41,7 +41,7 @@
 
 - name: configure logwatch
   template:
-    src: templates/logwatch.j2
+    src: templates/logwatch.conf.j2
     dest: /etc/logwatch/conf/logwatch.conf
 
 - name: disable ssh password authentication
