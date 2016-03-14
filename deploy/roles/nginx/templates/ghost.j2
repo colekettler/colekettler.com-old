@@ -12,6 +12,9 @@ server {
 
     server_name www.{{ domain }};
 
+    ssl_certificate /etc/ssl/certs/{{ domain }}.pem;
+    ssl_certificate_key /etc/ssl/private/{{ domain }}.key;
+
     return 301 https://{{ domain }}$request_uri;
 }
 
