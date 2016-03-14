@@ -27,3 +27,9 @@
     path: "{{ ghost_dir }}"
     production: yes
     state: present
+
+- name: install bower
+  npm:
+    name: bower
+    global: yes
+    state: present
