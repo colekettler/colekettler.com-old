@@ -1,0 +1,12 @@
+---
+
+- name: decrypt secrets
+  include_vars: vault.yml
+  no_log: yes
+
+- name: set smtp service credentials
+  template:
+    src: passwd.client.j2
+    dest: /etc/exim4/passwd.client
+  become: yes
+  notify: restart exim4
