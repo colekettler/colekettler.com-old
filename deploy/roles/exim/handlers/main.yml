@@ -2,8 +2,10 @@
 
 - name: reconfigure exim4
   command: update-exim4.conf
+  become: yes
 
 - name: restart exim4
   service:
     name: exim4
     state: restarted
+  become: yes
