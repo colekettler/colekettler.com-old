@@ -12,6 +12,7 @@
     group: ghost
     mode: "0660"
   become: yes
+  notify: restart supervisorctl
 
 - name: install theme
   git:
@@ -19,7 +20,9 @@
     dest: "{{ ghost_theme_dir }}"
     accept_hostkey: yes
     update: yes
+  notify: restart supervisorctl
 
 - name: install theme dependencies
   bower:
     path: "{{ ghost_theme_dir }}"
+  notify: restart supervisorctl
